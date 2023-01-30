@@ -1,8 +1,8 @@
 import { readdirSync, statSync } from 'fs';
 import { join } from 'path';
 
-function getProjects(repository: string, projectsPath: string) {
-  const resolvedPath = join(process.cwd(), repository);
+function getProjects(repository: string, projectsPath: string, currentPath = process.cwd()) {
+  const resolvedPath = join(currentPath, repository);
 
   const packages = join(resolvedPath, projectsPath);
   const projects: string[] = [];

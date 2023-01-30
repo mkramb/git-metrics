@@ -6,8 +6,12 @@ const README_TITLE = `# Sum of Cross Contributions`;
 const getReadmeContent = (sumOfCrossContributors: number) =>
   `${README_TITLE} : ${sumOfCrossContributors}`;
 
-function updateReadme(repository: string, sumOfCrossContributors: number) {
-  const resolvedPath = join(process.cwd(), repository);
+function updateReadme(
+  repository: string,
+  sumOfCrossContributors: number,
+  currentPath = process.cwd()
+) {
+  const resolvedPath = join(currentPath, repository);
   const readmePath = join(resolvedPath, 'README.md');
 
   let fileContent = [];
